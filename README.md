@@ -6,13 +6,9 @@ phpcrawler forked from phpcrawl.cuab.dewith bug fixed request
     <?php
         include("libs/PHPCrawler.class.php");
       
-        class MyCrawler extends PHPCrawler 
-        {
-        function handleDocumentInfo($DocInfo) 
-        {
-          // Just detect linebreak for output ("\n" in CLI-mode, otherwise "<br>").
-          if (PHP_SAPI == "cli") $lb = "\n";
-          else $lb = "<br />";
+        class MyCrawler extends PHPCrawler {
+        function handleDocumentInfo($DocInfo) {
+          if (PHP_SAPI == "cli") $lb = "\n";  else $lb = "<br />";
       
           // Print the URL and the HTTP-status-Code
           echo "Page requested: ".$DocInfo->url." (".$DocInfo->http_status_code.")".$lb;
